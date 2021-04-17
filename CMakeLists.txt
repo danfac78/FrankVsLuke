@@ -5,7 +5,15 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #include(CTest)
 #enable_testing()
 
-add_executable(LukeVSFrank src/main.cpp)
+add_executable(
+    LukeVSFrank
+    src/main.cpp
+    src/gfx/common/coord.h
+    src/gfx/common/coord.cpp
+    src/gfx/common/IMovable.h
+    src/gfx/bitmap/bitmap.h
+    src/gfx/bitmap/bitmap.cpp
+)
 
 target_compile_options(LukeVSFrank INTERFACE   -Wall -Wextra)
 target_include_directories(LukeVSFrank PUBLIC /usr/include/SDL2)
