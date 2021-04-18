@@ -14,6 +14,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_17)
 
+# Prefer pthread over system thread - DEVONO stare prima del find_package!
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+find_package(Threads REQUIRED)
+
 add_executable(
     LukeVSFrank
     src/main.cpp
@@ -26,7 +31,7 @@ add_executable(
 
 target_compile_options(LukeVSFrank INTERFACE   -Wall -Wextra  -Wpedantic -Wnull-dereference -Wformat=2 -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches)
 target_include_directories(LukeVSFrank PUBLIC /usr/include/SDL2)
-target_link_libraries(LukeVSFrank PUBLIC project_options SDL2 SDL2_image)
+target_link_libraries(LukeVSFrank PUBLIC project_options SDL2 SDL2_image Threads::Threads)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
