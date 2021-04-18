@@ -33,6 +33,8 @@ target_compile_options(LukeVSFrank INTERFACE   -Wall -Wextra  -Wpedantic -Wnull-
 target_include_directories(LukeVSFrank PUBLIC /usr/include/SDL2)
 target_link_libraries(LukeVSFrank PUBLIC project_options SDL2 SDL2_image Threads::Threads)
 
+configure_file(assets/test.png assets/test.png COPYONLY)
+
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

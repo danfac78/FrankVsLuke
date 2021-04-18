@@ -93,7 +93,7 @@ bool loadMedia()
 	bool success = true;
 
 	//Load PNG texture
-	gTexture = loadTexture( "/home/daniele/repo/cpp/porco/assets/pngloaded.png" );
+	gTexture = loadTexture( "assets/test.png" );
 	if( gTexture == NULL )
 	{
 		printf( "Failed to load texture image!\n" );
