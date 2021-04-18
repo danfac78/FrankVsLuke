@@ -5,6 +5,15 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #include(CTest)
 #enable_testing()
 
+#You need to set the dafaults to propagate to subdirectories
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Link this 'library' to set the c++ standard / compile-time options requested
+add_library(project_options INTERFACE)
+target_compile_features(project_options INTERFACE cxx_std_17)
+
 add_executable(
     LukeVSFrank
     src/main.cpp
@@ -15,9 +24,9 @@ add_executable(
     src/gfx/bitmap/bitmap.cpp
 )
 
-target_compile_options(LukeVSFrank INTERFACE   -Wall -Wextra)
+target_compile_options(LukeVSFrank INTERFACE   -Wall -Wextra  -Wpedantic -Wnull-dereference -Wformat=2 -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches)
 target_include_directories(LukeVSFrank PUBLIC /usr/include/SDL2)
-target_link_libraries(LukeVSFrank PUBLIC SDL2 SDL2_image)
+target_link_libraries(LukeVSFrank PUBLIC project_options SDL2 SDL2_image)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
