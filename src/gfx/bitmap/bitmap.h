@@ -29,10 +29,10 @@ public:
 };
 
 
-class Sprite: ABitmap, IMovable
+class Sprite: public ABitmap, public IMovable
 {
 public:
-    Sprite();
+    Sprite() = default;
     
     void moveBy(const Coord& p) override
     {
@@ -59,7 +59,5 @@ public:
         
     }
 
-    ~Sprite() override {
-
-    }
+    ~Sprite() override = default;
 };
