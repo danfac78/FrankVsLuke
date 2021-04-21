@@ -22,11 +22,14 @@ find_package(Threads REQUIRED)
 add_executable(
     LukeVSFrank
     src/main.cpp
+    src/gfx/bitmap/ABitmap.h
+    src/gfx/bitmap/ABitmap.cpp
+    src/gfx/bitmap/sprite.h
+    src/gfx/bitmap/sprite.cpp
     src/gfx/common/coord.h
     src/gfx/common/coord.cpp
     src/gfx/common/IMovable.h
-    src/gfx/bitmap/bitmap.h
-    src/gfx/bitmap/bitmap.cpp
+    src/gfx/common/size.h
 )
 
 target_compile_options(LukeVSFrank INTERFACE   -Wall -Wextra  -Wpedantic -Wnull-dereference -Wformat=2 -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches)
