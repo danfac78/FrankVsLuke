@@ -6,7 +6,7 @@ and may not be redistributed without written permission.*/
 #include <SDL_image.h>
 #include <stdio.h>
 #include <string>
-#include "./gfx/common/coord.h"
+#include "gfx/common/coord.h"
 
 //Screen dimension constants
 constexpr int SCREEN_WIDTH = 640;
